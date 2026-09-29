@@ -1,0 +1,81 @@
+<section class="chatbot-page">
+  <div class="container">
+    <div class="chatbot-wrapper">
+      
+      <!-- HEADER -->
+      <div class="chatbot-header">
+        <div class="bot-avatar">
+          <i class="fas fa-robot"></i>
+          <span class="status-dot"></span>
+        </div>
+        <div class="bot-info">
+          <h4>KTL Bot</h4>
+          <p><span class="online-dot"></span> Online — Anajibu papo hapo</p>
+        </div>
+        <button type="button" class="btn-clear" (click)="clearChat()" title="Clear chat">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+
+      <!-- MESSAGES -->
+      <div class="chatbot-messages" #chatContainer>
+        <div *ngFor="let msg of messages" class="message-row" [class.message-user]="msg.sender === 'user'" [class.message-bot]="msg.sender === 'bot'">
+          <div class="message-avatar" *ngIf="msg.sender === 'bot'">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="message-bubble">
+            <p>{{ msg.text }}</p>
+            <small>{{ formatTime(msg.time) }}</small>
+          </div>
+          <div class="message-avatar user-avatar" *ngIf="msg.sender === 'user'">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <div class="message-row message-bot" *ngIf="isTyping">
+          <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="message-bubble typing">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK REPLIES -->
+      <div class="quick-replies" *ngIf="messages.length <= 2">
+        <button type="button" class="quick-btn" (click)="sendQuickReply('Huduma zenu ni zipi?')">
+          <i class="fas fa-cogs"></i> Huduma
+        </button>
+        <button type="button" class="quick-btn" (click)="sendQuickReply('Bei zenu ni ngapi?')">
+          <i class="fas fa-tag"></i> Bei
+        </button>
+        <button type="button" class="quick-btn" (click)="sendQuickReply('Ninawezaje kuwasiliana nanyi?')">
+          <i class="fas fa-envelope"></i> Mawasiliano
+        </button>
+        <button type="button" class="quick-btn" (click)="sendQuickReply('Mnatoa huduma za AI?')">
+          <i class="fas fa-brain"></i> AI
+        </button>
+      </div>
+
+      <!-- INPUT -->
+      <div class="chatbot-input">
+        <textarea id="chatInput" name="chatInput" [(ngModel)]="userInput" (keydown)="onKeyDown($event)" placeholder="Andika ujumbe wako hapa..." rows="1" [disabled]="isTyping"></textarea>
+        <button type="button" class="btn-send" (click)="sendMessage()" [disabled]="!userInput.trim() || isTyping">
+          <i class="fas" [ngClass]="isTyping ? 'fa-spinner fa-spin' : 'fa-paper-plane'"></i>
+        </button>
+      </div>
+
+      <!-- FOOTER INFO -->
+      <div class="chatbot-footer">
+        <small>
+          <i class="fas fa-lock"></i> 
+          Mazungumzo yako ni salama. Kwa msaada zaidi: 
+          <a routerLink="/support">Submit ticket</a>
+        </small>
+      </div>
+
+    </div>
+  </div>
+</section>

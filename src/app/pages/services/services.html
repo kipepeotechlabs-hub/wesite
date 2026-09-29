@@ -1,0 +1,20 @@
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="section-title">
+        <i class="fas fa-cogs me-2"></i>Our Services
+      </h1>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let service of services">
+        <div class="product-card text-center">
+          <div class="product-icon-circle">
+            <i [class]="service.icon + ' fa-2x'" style="color: #FACC15;"></i>
+          </div>
+          <h5 class="fw-bold">{{ service.name }}</h5>
+          <p class="text-muted">{{ service.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

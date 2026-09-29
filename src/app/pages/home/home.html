@@ -1,0 +1,188 @@
+<!-- HERO SLIDER -->
+<div id="ktlCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/team.jpeg" alt="Team">
+      <div class="hero-overlay">
+        <div>
+          <h1>Build the Future with Kipepeo Tech Labs</h1>
+          <p>Innovative software, AI, and cloud solutions for Africa's digital transformation</p>
+          <a routerLink="/contact" class="btn btn-ktl btn-lg">Get Started</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/ai.jpg" alt="AI">
+      <div class="hero-overlay">
+        <div>
+          <h1>AI & Machine Learning Solutions</h1>
+          <p>Harness the power of artificial intelligence to transform your business</p>
+          <a routerLink="/services" class="btn btn-ktl btn-lg">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/cloud.jpg" alt="Cloud">
+      <div class="hero-overlay">
+        <div>
+          <h1>Cloud & DevOps Engineering</h1>
+          <p>Scalable, secure, and reliable cloud infrastructure</p>
+          <a routerLink="/services" class="btn btn-ktl btn-lg">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#ktlCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#ktlCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">
+        <i class="fas fa-microchip me-2"></i>Our Products
+      </h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of products">
+        <a [href]="product.url" target="_blank" class="text-decoration-none">
+          <div class="product-card">
+            <div class="product-icon-circle">
+              <i [class]="product.icon + ' fa-2x'" style="color: #FACC15;"></i>
+            </div>
+            <h6>{{ product.name }}</h6>
+            <p>{{ product.desc }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS & ANNOUNCEMENTS -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="news-section-title">
+          <i class="fas fa-newspaper"></i>
+          <span>News & Events</span>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="news-featured">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop" alt="AI News">
+              <div class="news-overlay">
+                <h5>KTL LAUNCHES GROUNDBREAKING AI PLATFORM FOR EAST AFRICAN BUSINESSES</h5>
+                <small><i class="fas fa-calendar me-1"></i> 15 October, 2026</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <a routerLink="/blog" class="news-item">
+              <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200&h=160&fit=crop" 
+                   class="news-item-img" alt="Cloud">
+              <div class="news-item-content">
+                <h6>KTL PARTNERS WITH LEADING CLOUD PROVIDER TO EXPAND DATA CENTER CAPACITY</h6>
+                <small><i class="fas fa-calendar me-1"></i> 02 October, 2026</small>
+              </div>
+            </a>
+            <a routerLink="/blog" class="news-item">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=200&h=160&fit=crop" 
+                   class="news-item-img" alt="Hackathon">
+              <div class="news-item-content">
+                <h6>KTL HOSTS ANNUAL HACKATHON: 200+ DEVELOPERS COMPETE FOR $50K PRIZE</h6>
+                <small><i class="fas fa-calendar me-1"></i> 20 September, 2026</small>
+              </div>
+            </a>
+            <a routerLink="/blog" class="news-item">
+              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=200&h=160&fit=crop" 
+                   class="news-item-img" alt="FinTech">
+              <div class="news-item-content">
+                <h6>NEW FINTECH SOLUTION BY KTL TO SERVE 1M+ UNBANKED TANZANIANS</h6>
+                <small><i class="fas fa-calendar me-1"></i> 08 September, 2026</small>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="announcement-title">
+          <i class="fas fa-bullhorn"></i>
+          <span>Announcements</span>
+        </div>
+        <div class="announcement-item">
+          <span class="badge-new">New</span>
+          <div class="announcement-content">
+            <h6>KTL RAISES $10M SERIES A TO EXPAND AI RESEARCH</h6>
+            <small><i class="fas fa-calendar me-1"></i> 10 October, 2026</small>
+          </div>
+        </div>
+        <div class="announcement-item">
+          <span class="badge-new">New</span>
+          <div class="announcement-content">
+            <h6>KTL ACADEMY 2026 — FREE CODING BOOTCAMP</h6>
+            <small><i class="fas fa-calendar me-1"></i> 05 October, 2026</small>
+          </div>
+        </div>
+        <div class="announcement-item">
+          <span class="badge-new">New</span>
+          <div class="announcement-content">
+            <h6>KTL ACHIEVES ISO 27001:2022 CERTIFICATION</h6>
+            <small><i class="fas fa-calendar me-1"></i> 22 September, 2026</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <h2 class="text-center text-white fw-bold mb-5">Our Impact by the Numbers</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="stat-card">
+          <p>Projects Delivered</p>
+          <p class="stat-number">150+</p>
+          <p class="stat-label">Across 12 countries</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <p>Active Users Reached</p>
+          <p class="stat-number">2.5M+</p>
+          <p class="stat-label">Monthly active</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <p>Team Members</p>
+          <p class="stat-number">85+</p>
+          <p class="stat-label">Engineers & designers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HELP CENTER -->
+<section class="help-section">
+  <div class="container">
+    <h4>NEED HELP WITH <span style="color: #b45309;">TECHNOLOGY SOLUTIONS</span>?</h4>
+    <p class="mb-0">For enquiries, project quotes, or technical support — our team is ready to assist.</p>
+    <div class="help-info">
+      <p><i class="fas fa-phone me-2"></i>+255 22 213 4567 (Sales)</p>
+      <p><i class="fas fa-phone me-2"></i>+255 22 213 4568 (Support)</p>
+      <p><i class="fab fa-whatsapp me-2"></i>+255 744 123 456</p>
+      <p><i class="fas fa-envelope me-2"></i>hello@kipepeolabs.com</p>
+    </div>
+  </div>
+</section>

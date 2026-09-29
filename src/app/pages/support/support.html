@@ -1,0 +1,344 @@
+<!-- ============================================================
+     SUPPORT PAGE — KIPEPEO TECH LABS
+     ============================================================ -->
+
+<!-- ============================================
+     1. HERO SECTION
+     ============================================ -->
+<section class="support-hero">
+  <div class="container text-center text-white">
+    <h1 class="hero-title">
+      <i class="fas fa-headset"></i> How Can We Help?
+    </h1>
+    <p class="hero-subtitle">
+      Our support team is here 24/7 to help you with any questions or issues.
+    </p>
+    <div class="hero-actions">
+      <a href="#channels" class="btn-hero-primary">
+        <i class="fas fa-life-ring"></i> Get Support
+      </a>
+      <a href="#ticket" class="btn-hero-secondary">
+        <i class="fas fa-ticket-alt"></i> Submit a Ticket
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     2. SUPPORT CHANNELS
+     ============================================ -->
+<section class="support-channels" id="channels">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">
+        <i class="fas fa-comments"></i> Contact Channels
+      </h2>
+      <p class="text-muted mt-3">Choose the best way to reach us</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" *ngFor="let channel of supportChannels">
+        <a [href]="channel.link" 
+           [target]="channel.link.startsWith('http') ? '_blank' : '_self'"
+           class="channel-link">
+          <div class="channel-card">
+            <div class="channel-icon" [style.background]="channel.color + '15'">
+              <i [class]="channel.icon" [style.color]="channel.color"></i>
+            </div>
+            <h5>{{ channel.title }}</h5>
+            <p class="channel-desc">{{ channel.desc }}</p>
+            <p class="channel-value">{{ channel.value }}</p>
+            <small class="channel-sub">{{ channel.subvalue }}</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     3. SUPPORT CATEGORIES
+     ============================================ -->
+<section class="support-categories">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">
+        <i class="fas fa-th-large"></i> Support Categories
+      </h2>
+      <p class="text-muted mt-3">Browse our help topics</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let cat of supportCategories">
+        <a [routerLink]="cat.link" class="category-link">
+          <div class="category-card">
+            <div class="category-icon" [style.background]="cat.color + '15'">
+              <i [class]="cat.icon" [style.color]="cat.color"></i>
+            </div>
+            <h5>{{ cat.title }}</h5>
+            <p>{{ cat.desc }}</p>
+            <span class="category-badge">{{ cat.count }}</span>
+            <i class="fas fa-arrow-right category-arrow"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     4. GET IN TOUCH — HOURS + TICKET FORM
+     ============================================ -->
+<section class="support-main" id="ticket">
+  <div class="container">
+    
+    <!-- Section Title -->
+    <div class="text-center mb-5">
+      <h2 class="section-title">
+        <i class="fas fa-ticket-alt"></i> Get In Touch
+      </h2>
+      <p class="text-muted mt-3">Check our hours or submit a ticket</p>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- ========== LEFT: SUPPORT HOURS ========== -->
+      <div class="col-lg-5">
+        <div class="hours-card">
+          <h4 class="card-title">
+            <i class="fas fa-clock"></i> Support Hours
+          </h4>
+          
+          <div class="hours-list">
+            <div class="hours-item" 
+                 *ngFor="let h of supportHours"
+                 [class.hours-closed]="h.status === 'closed'">
+              <div class="hours-day">
+                <i class="fas fa-calendar-day"></i>
+                {{ h.day }}
+              </div>
+              <div class="hours-time">
+                <span class="status-dot" [class.closed]="h.status === 'closed'"></span>
+                {{ h.hours }}
+              </div>
+            </div>
+          </div>
+
+          <div class="emergency-box">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <h6>Emergency Support</h6>
+              <p>For critical issues, call our emergency line:</p>
+              <a href="tel:+255689122516">
+                <i class="fas fa-phone"></i> +255 689 122 516
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== RIGHT: TICKET FORM ========== -->
+      <div class="col-lg-7">
+        <div class="ticket-card">
+          <h4 class="card-title">
+            <i class="fas fa-paper-plane"></i> Submit a Support Ticket
+          </h4>
+          <p class="text-muted mb-4">Fill out the form and our team will respond within 24 hours.</p>
+
+          <!-- SUCCESS MESSAGE -->
+          <div class="alert-success" *ngIf="showSuccess">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <strong>Ticket Submitted Successfully!</strong>
+              <p class="mb-0">Our team will contact you within 24 hours.</p>
+            </div>
+          </div>
+
+          <!-- FORM -->
+          <form #ticketForm="ngForm" (ngSubmit)="onSubmit(ticketForm)" *ngIf="!showSuccess">
+            <div class="row g-3">
+              
+              <!-- NAME -->
+              <div class="col-md-6">
+                <label class="form-label">Your Name *</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  [class.is-invalid]="errors['name']"
+                  placeholder="John Doe" 
+                  [(ngModel)]="ticket.name"
+                  name="name"
+                  required>
+                <small class="text-danger" *ngIf="errors['name']">
+                  <i class="fas fa-exclamation-circle"></i> {{ errors['name'] }}
+                </small>
+              </div>
+
+              <!-- EMAIL -->
+              <div class="col-md-6">
+                <label class="form-label">Your Email *</label>
+                <input 
+                  type="email" 
+                  class="form-control" 
+                  [class.is-invalid]="errors['email']"
+                  placeholder="you@example.com" 
+                  [(ngModel)]="ticket.email"
+                  name="email"
+                  required>
+                <small class="text-danger" *ngIf="errors['email']">
+                  <i class="fas fa-exclamation-circle"></i> {{ errors['email'] }}
+                </small>
+              </div>
+
+              <!-- PHONE -->
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input 
+                  type="tel" 
+                  class="form-control" 
+                  placeholder="+255 7XX XXX XXX"
+                  [(ngModel)]="ticket.phone"
+                  name="phone">
+              </div>
+
+              <!-- PRIORITY -->
+              <div class="col-md-6">
+                <label class="form-label">Priority *</label>
+                <select 
+                  class="form-control" 
+                  [class.is-invalid]="errors['priority']"
+                  [(ngModel)]="ticket.priority"
+                  name="priority"
+                  required>
+                  <option value="">Select priority...</option>
+                  <option value="low">Low — General question</option>
+                  <option value="medium">Medium — Need help soon</option>
+                  <option value="high">High — Business impact</option>
+                  <option value="critical">Critical — Urgent issue</option>
+                </select>
+                <small class="text-danger" *ngIf="errors['priority']">
+                  <i class="fas fa-exclamation-circle"></i> {{ errors['priority'] }}
+                </small>
+              </div>
+
+              <!-- CATEGORY -->
+              <div class="col-md-12">
+                <label class="form-label">Category *</label>
+                <select 
+                  class="form-control" 
+                  [class.is-invalid]="errors['category']"
+                  [(ngModel)]="ticket.category"
+                  name="category"
+                  required>
+                  <option value="">Select category...</option>
+                  <option value="technical">Technical Issue</option>
+                  <option value="billing">Billing Question</option>
+                  <option value="feature">Feature Request</option>
+                  <option value="bug">Bug Report</option>
+                  <option value="account">Account Help</option>
+                  <option value="other">Other</option>
+                </select>
+                <small class="text-danger" *ngIf="errors['category']">
+                  <i class="fas fa-exclamation-circle"></i> {{ errors['category'] }}
+                </small>
+              </div>
+
+              <!-- SUBJECT -->
+              <div class="col-md-12">
+                <label class="form-label">Subject *</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  [class.is-invalid]="errors['subject']"
+                  placeholder="Brief description of your issue"
+                  [(ngModel)]="ticket.subject"
+                  name="subject"
+                  required>
+                <small class="text-danger" *ngIf="errors['subject']">
+                  <i class="fas fa-exclamation-circle"></i> {{ errors['subject'] }}
+                </small>
+              </div>
+
+              <!-- MESSAGE -->
+              <div class="col-md-12">
+                <label class="form-label">Message *</label>
+                <textarea 
+                  class="form-control" 
+                  rows="5" 
+                  [class.is-invalid]="errors['message']"
+                  placeholder="Please provide as much detail as possible..."
+                  [(ngModel)]="ticket.message"
+                  name="message"
+                  required></textarea>
+                <small class="text-danger" *ngIf="errors['message']">
+                  <i class="fas fa-exclamation-circle"></i> {{ errors['message'] }}
+                </small>
+              </div>
+
+              <!-- URGENT -->
+              <div class="col-md-12">
+                <div class="form-check">
+                  <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="urgent"
+                    [(ngModel)]="ticket.urgent"
+                    name="urgent">
+                  <label class="form-check-label" for="urgent">
+                    Mark as urgent (response within 2 hours)
+                  </label>
+                </div>
+              </div>
+
+              <!-- SUBMIT -->
+              <div class="col-md-12">
+            <button 
+                    type="submit" 
+                    class="btn-ktl w-100"
+                    [disabled]="isSubmitting">
+                    <i class="fas" [ngClass]="isSubmitting ? 'fa-spinner fa-spin' : 'fa-paper-plane'"></i>
+                    {{ isSubmitting ? 'Sending...' : 'Submit Ticket' }}
+                    </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     5. QUICK LINKS
+     ============================================ -->
+<section class="quick-links">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-md-3">
+        <a routerLink="/faq" class="quick-link">
+          <i class="fas fa-question-circle"></i>
+          <span>FAQs</span>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a routerLink="/contact" class="quick-link">
+          <i class="fas fa-envelope"></i>
+          <span>Contact Us</span>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a routerLink="/services" class="quick-link">
+          <i class="fas fa-cogs"></i>
+          <span>Services</span>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a routerLink="/blog" class="quick-link">
+          <i class="fas fa-blog"></i>
+          <span>Blog</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

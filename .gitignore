@@ -1,0 +1,38 @@
+# ============================================
+# SECRETS — USIWEKE KWENYE GIT!
+# ============================================
+src/environments/environment.ts
+src/environments/environment.development.ts
+
+# ============================================
+# Angular
+# ============================================
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# ============================================
+# Node
+# ============================================
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# ============================================
+# IDE
+# ============================================
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# ============================================
+# Misc
+# ============================================
+.DS_Store
+Thumbs.db
+.env
+.env.local
+*.log

@@ -1,0 +1,165 @@
+<!-- ============= TOP BAR ============= -->
+<div class="top-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div></div>
+    <div class="d-flex gap-3 align-items-center">
+      <a href="/sw/">Swahili</a>
+      <span>|</span>
+      <a routerLink="/faq">FAQs</a>
+      <span class="d-none d-md-inline">|</span>
+      <a href="https://mail.kipepeolabs.com" class="d-none d-md-inline">Staff Mail</a>
+      <span class="d-none d-md-inline">|</span>
+      <a href="https://servicedesk.kipepeolabs.com" class="d-none d-md-inline">Service Desk</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============= BANNER ============= -->
+<div class="ktl-banner">
+  <div class="container d-flex justify-content-between align-items-center">
+    <img src="https://img.icons8.com/fluency/96/butterfly.png" alt="KTL" class="ktl-banner-logo">
+    <div class="ktl-banner-text text-center d-none d-md-block">
+      <h3>KIPEPEO TECH LABS</h3>
+      <p>ISO 27001:2022 CERTIFIED</p>
+      <p class="tagline">"Innovate. Build. Scale."</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-155  ioo1434678-e076c223a692?w=120&h=120&fit=crop" 
+         alt="KTL" class="ktl-banner-logo">
+  </div>
+</div>
+
+<!-- ============= NAVIGATION ============= -->
+<nav class="navbar navbar-expand-lg ktl-nav sticky-top">
+  <div class="container">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#ktlNav">
+      <i class="fas fa-bars fa-lg"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="ktlNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Us</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/about">About KTL</a></li>
+            <li><a class="dropdown-item" routerLink="/team">Our Team</a></li>
+            <li><a class="dropdown-item" routerLink="/careers">Careers</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/services">All Services</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" routerLink="/services">Custom Software</a></li>
+            <li><a class="dropdown-item" routerLink="/services">AI & ML</a></li>
+            <li><a class="dropdown-item" routerLink="/services">Cloud & DevOps</a></li>
+            <li><a class="dropdown-item" routerLink="/services">Mobile Apps</a></li>
+            <li><a class="dropdown-item" routerLink="/services">Data Engineering</a></li>
+            <li><a class="dropdown-item" routerLink="/services">Cybersecurity</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/careers">Careers</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= ROUTER OUTLET (Kurasa Zinaingia Hapa) ============= -->
+<router-outlet></router-outlet>
+
+<!-- ============= FOOTER ============= -->
+<footer class="ktl-footer">
+  <div class="container">
+    <div class="text-center border-bottom border-secondary pb-4 mb-4">
+      <p class="mb-3">Get connected with us on social networks:</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6 text-center">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://kipepeolabs.com" 
+             alt="QR" class="footer-qr mb-3">
+        <p class="fst-italic" style="color: #FACC15;">Innovate. Build. Scale.</p>
+        <p class="fw-bold" style="color: #FACC15;">"Together We Build The Future"</p>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><i class="fas fa-arrow-circle-right"></i><a routerLink="/services">Custom Software</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a routerLink="/services">AI & ML</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a routerLink="/services">Cloud & DevOps</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a routerLink="/services">Mobile Apps</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a routerLink="/about">About Us</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a routerLink="/careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6>Related Links</h6>
+        <ul class="footer-links">
+          <li><i class="fas fa-arrow-circle-right"></i><a href="https://www.tanzania.go.tz/" target="_blank">Government of Tanzania</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a href="https://www.ict.go.tz/" target="_blank">Ministry of ICT</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a href="https://www.costech.or.tz/" target="_blank">COSTECH</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a href="https://www.udsm.ac.tz/" target="_blank">University of Dar es Salaam</a></li>
+          <li><i class="fas fa-arrow-circle-right"></i><a href="https://startup.tz/" target="_blank">Tanzania Startup Association</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h6>Contact Us</h6>
+        <p class="fw-bold mb-2" style="color: #FACC15;">Kipepeo Tech Labs</p>
+        <p class="mb-1">Plot 42, Bagamoyo Road,</p>
+        <p class="mb-1">Mikocheni, Dar es Salaam,</p>
+        <p class="mb-1">P.O. Box 12345,</p>
+        <p class="mb-1">Dar es Salaam, Tanzania</p>
+        <p class="mb-1 mt-2">Tel: +255 22 213 4567</p>
+        <p>Email: hello@kipepeolabs.com</p>
+      </div>
+    </div>
+
+    <div class="text-center border-top border-secondary pt-3 mt-4">
+      <p class="mb-2">Copyrights © 2026, <a routerLink="/" class="fw-bold">Kipepeo Tech Labs</a> - All Rights Reserved</p>
+      <div class="small">
+        <a routerLink="/legal/privacy" class="mx-2">Privacy Notice</a> |
+        <a routerLink="/legal/terms" class="mx-2">Terms & Conditions</a> |
+        <a routerLink="/legal/disclaimer" class="mx-2">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============= FLOATING BUTTONS ============= -->
+<!-- LEFT: Start a Project -->
+<div class="floating-btn-left">
+  <a routerLink="/contact" class="btn-float btn-float-project">
+    <i class="fas fa-rocket"></i> 
+    <span>Start a Project</span>
+  </a>
+</div>
+
+<!-- RIGHT: Stack ya buttons 3 -->
+<div class="floating-buttons-right">
+  <!-- AI Chatbot (Juu) -->
+  <a routerLink="/chatbot" class="btn-float btn-float-chatbot">
+    <i class="fas fa-robot"></i> 
+    <span>AI Chat Bot</span>
+  </a>
+  
+  <!-- 24/7 Support (Kati) -->
+  <a routerLink="/support" class="btn-float btn-float-support">
+    <i class="fas fa-headset"></i> 
+    <span>24/7 Support</span>
+  </a>
+  
+  <!-- Back to Top (Chini) -->
+  <button id="to-top-button" (click)="goToTop()" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</div>

@@ -1,0 +1,27 @@
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="section-title">
+        <i class="fas fa-users me-2"></i>Our Team
+      </h1>
+      <p class="text-muted">Meet the brilliant minds behind Kipepeo Tech Labs</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let member of teamMembers">
+        <div class="product-card text-center">
+          <img [src]="member.photo" class="rounded-circle mb-3" 
+               style="width: 120px; height: 120px; object-fit: cover; margin: 0 auto; border: 4px solid #FACC15;">
+          <h5 class="fw-bold">{{ member.name }}</h5>
+          <p class="text-warning fw-bold mb-2">{{ member.role }}</p>
+          <p class="text-muted small">{{ member.bio }}</p>
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <a href="#" class="text-dark"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-dark"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
