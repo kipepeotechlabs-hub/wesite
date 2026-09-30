@@ -1,0 +1,329 @@
+/* ============================================
+   DIRA YA TAIFA 2050 — PLAIN PAGE
+   ============================================ */
+
+.dira-plain-page {
+  min-height: calc(100vh - 200px);
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dira-plain-page .container {
+  max-width: 900px;
+}
+
+/* ============ HEADER ============ */
+.dira-header {
+  text-align: center;
+  margin-bottom: 48px;
+  animation: fadeIn 0.8s ease;
+}
+
+.dira-header-logo {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px;
+  margin: 0 auto 24px;
+  box-shadow: 0 16px 48px rgba(16, 185, 129, 0.25);
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.dira-header-logo:hover {
+  transform: scale(1.05);
+}
+
+.dira-header-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0a0a0a;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.dira-header-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ============ ACTION BUTTON ============ */
+.dira-action {
+  text-align: center;
+  margin-top: 32px;
+  animation: fadeIn 0.8s ease 0.2s both;
+}
+
+.btn-open-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-open-pdf i {
+  font-size: 16px;
+}
+
+.btn-open-pdf:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.5);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.btn-open-pdf:active {
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   PDF MODAL
+   ============================================ */
+
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.pdf-modal-content {
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease;
+}
+
+/* ============ PDF MODAL HEADER ============ */
+.pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1f2937 100%);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.pdf-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.pdf-modal-title i {
+  color: #10b981;
+  font-size: 20px;
+}
+
+.pdf-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdf-btn-download,
+.pdf-btn-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pdf-btn-download {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.pdf-btn-download:hover {
+  background: #059669;
+  transform: scale(1.1);
+}
+
+.pdf-btn-close {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.pdf-btn-close:hover {
+  background: #dc2626;
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* ============ PDF MODAL BODY ============ */
+.pdf-modal-body {
+  flex: 1;
+  overflow: hidden;
+  background: #e5e7eb;
+  position: relative;
+}
+
+.pdf-modal-body object {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* ============ PDF FALLBACK ============ */
+.pdf-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+  background: #f9fafb;
+}
+
+.pdf-fallback i {
+  font-size: 64px;
+  color: #10b981;
+  margin-bottom: 16px;
+}
+
+.pdf-fallback p {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.pdf-fallback .btn-ktl {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #10b981;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.pdf-fallback .btn-ktl:hover {
+  background: #0a0a0a;
+  color: #10b981;
+  transform: translateY(-3px);
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .dira-plain-page {
+    padding: 40px 0;
+  }
+
+  .dira-header-logo {
+    width: 130px;
+    height: 130px;
+    padding: 12px;
+  }
+
+  .dira-header-title {
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+
+  .dira-header-subtitle {
+    font-size: 13px;
+  }
+
+  .btn-open-pdf {
+    font-size: 12px;
+    padding: 12px 24px;
+  }
+
+  .pdf-modal {
+    padding: 0;
+  }
+
+  .pdf-modal-content {
+    height: 100vh;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .pdf-modal-title {
+    font-size: 13px;
+  }
+
+  .pdf-modal-title span {
+    display: none;
+  }
+
+  .pdf-btn-download,
+  .pdf-btn-close {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .pdf-fallback {
+    padding: 24px;
+  }
+
+  .pdf-fallback i {
+    font-size: 48px;
+  }
+}

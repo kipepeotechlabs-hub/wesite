@@ -1,0 +1,80 @@
+<!-- ============================================
+     DIRA YA TAIFA 2050 — PLAIN PAGE
+     ============================================ -->
+
+<section class="dira-plain-page">
+  <div class="container">
+    
+    <!-- KICHWA KIDOGO -->
+    <div class="dira-header">
+      <img 
+        src="assets/dira-2050-logo.png" 
+        alt="DIRA 2050" 
+        class="dira-header-logo">
+      <h1 class="dira-header-title">DIRA YA TAIFA YA MAENDELEO 2050</h1>
+      <p class="dira-header-subtitle">Hati Rasmi ya Serikali ya Tanzania</p>
+    </div>
+
+    <!-- BUTTON NDOGO YA KUFUNGUA PDF -->
+    <div class="dira-action">
+      <button 
+        type="button"
+        class="btn-open-pdf" 
+        (click)="openPdf()">
+        <i class="fas fa-file-pdf"></i> 
+        Fungua PDF
+      </button>
+    </div>
+
+    <!-- PDF MODAL (INAONEKANA TU UKIBONYEZA) -->
+    <div class="pdf-modal" *ngIf="showPdf" (click)="closePdf()">
+      <div class="pdf-modal-content" (click)="$event.stopPropagation()">
+        
+        <!-- HEADER -->
+        <div class="pdf-modal-header">
+          <div class="pdf-modal-title">
+            <i class="fas fa-file-pdf"></i>
+            <span>Dira ya Taifa ya Maendeleo 2050</span>
+          </div>
+          <div class="pdf-modal-actions">
+            <a [href]="pdfUrl" 
+               target="_blank" 
+               class="pdf-btn-download"
+               title="Download PDF">
+              <i class="fas fa-download"></i>
+            </a>
+            <button 
+              type="button"
+              class="pdf-btn-close" 
+              (click)="closePdf()"
+              title="Funga">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- OBJECT — INAFUNGUA PDF BILA DOWNLOAD -->
+        <div class="pdf-modal-body">
+          <object 
+            [data]="safePdfUrl" 
+            type="application/pdf" 
+            width="100%" 
+            height="100%">
+            
+            <!-- FALLBACK KAMA PDF HAIONEKANI -->
+            <div class="pdf-fallback">
+              <i class="fas fa-file-pdf"></i>
+              <p>PDF haionekani kwenye browser yako.</p>
+              <a [href]="pdfUrl" target="_blank" class="btn-ktl">
+                <i class="fas fa-external-link-alt"></i> Fungua PDF kwenye Tab Mpya
+              </a>
+            </div>
+            
+          </object>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

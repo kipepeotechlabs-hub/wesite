@@ -2246,24 +2246,28 @@ a {
     justify-content: center;
   }
 }
-/* ============================================================
-   FLOATING BUTTONS — KIPEPEO TECH LABS
-   ============================================================ */
+/* ============================================
+   FLOATING BUTTONS — LEFT na RIGHT
+   ============================================ */
 
-/* ============ LEFT: Start a Project ============ */
-.floating-btn-left {
+/* ============ LEFT: Start + DIRA ============ */
+.floating-buttons-left {
   position: fixed;
   left: 20px;
   bottom: 20px;
-  z-index: 999;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
 }
 
-/* ============ RIGHT: Stack ya buttons ============ */
+/* ============ RIGHT: Chatbot + Support + Top ============ */
 .floating-buttons-right {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 999;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2287,6 +2291,7 @@ a {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   white-space: nowrap;
+  font-family: 'Nunito', sans-serif;
 }
 
 .btn-float i {
@@ -2326,7 +2331,7 @@ a {
   transform: translateY(-4px) scale(1.05);
 }
 
-/* Badge ya "AI" kwenye Chatbot */
+/* Badge "NEW" kwenye Chatbot */
 .btn-float-chatbot::before {
   content: 'NEW';
   position: absolute;
@@ -2343,7 +2348,40 @@ a {
   animation: badge-pulse 1.5s infinite;
 }
 
-/* ============ 24/7 SUPPORT (Dark/Black) ============ */
+/* ============ DIRA YA TAIFA (Green + Logo) ============ */
+.btn-float-dira {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  animation: pulse-green 2.5s infinite;
+  position: relative;
+}
+
+.btn-float-dira:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff;
+  animation: none;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
+}
+
+/* Logo kwenye DIRA button */
+.btn-float-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 2px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-float-dira:hover .btn-float-logo {
+  transform: scale(1.15) rotate(-5deg);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+}
+
+/* ============ 24/7 SUPPORT (Dark) ============ */
 .btn-float-support {
   background: #0a0a0a;
   color: #FACC15;
@@ -2356,7 +2394,7 @@ a {
   border-color: #0a0a0a;
 }
 
-/* ============ BACK TO TOP BUTTON ============ */
+/* ============ BACK TO TOP ============ */
 #to-top-button {
   display: none;
   width: 48px;
@@ -2386,12 +2424,8 @@ a {
 
 /* ============ ANIMATIONS ============ */
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes pulse-purple {
@@ -2405,22 +2439,28 @@ a {
   }
 }
 
-@keyframes badge-pulse {
+@keyframes pulse-green {
   0%, 100% {
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
     transform: scale(1);
-    opacity: 1;
   }
   50% {
-    transform: scale(1.15);
-    opacity: 0.85;
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.7);
+    transform: scale(1.03);
   }
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
 }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
-  .floating-btn-left {
+  .floating-buttons-left {
     left: 12px;
     bottom: 12px;
+    gap: 8px;
   }
 
   .floating-buttons-right {
@@ -2434,13 +2474,18 @@ a {
     font-size: 11px;
   }
 
-  /* Ficha maandishi kwenye simu — onyesha icons tu */
+  /* Ficha maandishi kwenye simu */
   .btn-float span {
     display: none;
   }
 
   .btn-float i {
     font-size: 18px;
+  }
+
+  .btn-float-logo {
+    width: 28px;
+    height: 28px;
   }
 
   .btn-float-chatbot::before {
@@ -2454,20 +2499,5 @@ a {
     width: 42px;
     height: 42px;
     font-size: 16px;
-  }
-}
-
-/* ============ KWA SIMU NDOGO SANA ============ */
-@media (max-width: 480px) {
-  .btn-float {
-    padding: 10px 12px;
-  }
-
-  .btn-float i {
-    font-size: 16px;
-  }
-
-  .floating-buttons-right {
-    gap: 6px;
   }
 }

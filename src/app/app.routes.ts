@@ -9,6 +9,7 @@ import { BlogComponent } from './pages/blog/blog';
 import { SupportComponent } from './pages/support/support';
 import { ChatbotComponent } from './pages/chatbot/chatbot';
 import { NotFoundComponent } from './pages/not-found/not-found';
+import { DiraYaTaifaComponent } from './pages/dira-ya-taifa/dira-ya-taifa';
 
 export const routes: Routes = [
   // ========== HOME ==========
@@ -18,6 +19,12 @@ export const routes: Routes = [
     title: 'Kipepeo Tech Labs — Home' 
   },
 
+  // ========== DIRA YA TAIFA ==========
+{
+path: 'dira-ya-taifa',
+component: DiraYaTaifaComponent,
+title: 'Dira Ya Taifa 2050 — Kipepeo Tech Labs'
+},
   // ========== ABOUT ==========
   { 
     path: 'about', 

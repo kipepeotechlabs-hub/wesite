@@ -136,30 +136,45 @@
 </footer>
 
 <!-- ============= FLOATING BUTTONS ============= -->
-<!-- LEFT: Start a Project -->
-<div class="floating-btn-left">
+
+<!-- LEFT: Start a Project + DIRA YA TAIFA -->
+<div class="floating-buttons-left">
+  
+  <!-- Start a Project -->
   <a routerLink="/contact" class="btn-float btn-float-project">
     <i class="fas fa-rocket"></i> 
     <span>Start a Project</span>
   </a>
+
+  <!-- DIRA YA TAIFA -->
+  <a routerLink="/dira-ya-taifa" class="btn-float btn-float-dira">
+    <img 
+      src="assets/dira-2050-logo.png" 
+      alt="DIRA 2050" 
+      class="btn-float-logo">
+    <span>DIRA YA TAIFA</span>
+  </a>
+  
 </div>
 
-<!-- RIGHT: Stack ya buttons 3 -->
+<!-- RIGHT: AI Chatbot + 24/7 Support -->
 <div class="floating-buttons-right">
-  <!-- AI Chatbot (Juu) -->
+  
+  <!-- AI Chatbot -->
   <a routerLink="/chatbot" class="btn-float btn-float-chatbot">
     <i class="fas fa-robot"></i> 
     <span>AI Chat Bot</span>
   </a>
-  
-  <!-- 24/7 Support (Kati) -->
+
+  <!-- 24/7 Support -->
   <a routerLink="/support" class="btn-float btn-float-support">
     <i class="fas fa-headset"></i> 
     <span>24/7 Support</span>
   </a>
-  
-  <!-- Back to Top (Chini) -->
+
+  <!-- Back to Top -->
   <button id="to-top-button" (click)="goToTop()" title="Back to Top">
     <i class="fas fa-arrow-up"></i>
   </button>
+  
 </div>
