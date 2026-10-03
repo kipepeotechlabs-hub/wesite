@@ -6,11 +6,27 @@
 <section class="about-hero">
   <div class="container text-center text-white">
     <h1 class="hero-title">
-      <i class="fas fa-building"></i> About Kipepeo Tech Labs
+      <i class="fas fa-building"></i> {{ heroTitle }}
     </h1>
-    <p class="hero-subtitle">
-      Innovating for Africa's digital future since 2016
-    </p>
+    <p class="hero-subtitle">{{ heroSubtitle }}</p>
+  </div>
+</section>
+
+<!-- ============ STATS SECTION (MPYA) ============ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3" *ngFor="let stat of stats">
+        <div class="stat-card">
+          <div class="stat-icon-circle"
+               [style.background]="stat.color + '20'">
+            <i [class]="stat.icon" [style.color]="stat.color"></i>
+          </div>
+          <div class="stat-number">{{ stat.number }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -20,36 +36,58 @@
     <div class="row g-4 align-items-center">
       <div class="col-md-6">
         <div class="about-image-wrapper">
-          <img src="assets/team.jpeg" 
-               class="about-image" 
-               alt="About Kipepeo Tech Labs">
+          <img src="assets/team.png"
+               class="about-image"
+               alt="Kipepeo Tech Labs Team">
           <div class="about-image-badge">
             <i class="fas fa-award"></i>
             <div>
-              <strong>Since 2016</strong>
-              <small>8+ Years of Excellence</small>
+              <strong>Since 2026</strong>
+              <small>Kuanzishwa Tanzania</small>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <span class="about-tagline">Who We Are</span>
-        <h2 class="about-title">Innovating for Africa's Future</h2>
-        <p class="about-text">
-          Kipepeo Tech Labs ni kampuni ya teknolojia inayoongoza Afrika Mashariki, 
-          tukiunda suluhisho za kidijitali zinazobadilisha biashara na maisha ya watu.
-        </p>
-        <p class="about-text">
-          Tulianzishwa mwaka 2016 na timu ya wabunifu na wahandisi wenye maono ya 
-          kuleta mabadiliko kupitia teknolojia. Leo, tunahudumia wateja katika 
-          nchi 12 za Afrika na duniani kote.
+        <span class="about-tagline">{{ tagline }}</span>
+        <h2 class="about-title">{{ aboutTitle }}</h2>
+        <p class="about-text" *ngFor="let para of aboutParagraphs">
+          {{ para }}
         </p>
         <ul class="about-list">
-          <li><i class="fas fa-check-circle"></i> 150+ miradi iliyokamilika</li>
-          <li><i class="fas fa-check-circle"></i> Wateja katika nchi 12</li>
-          <li><i class="fas fa-check-circle"></i> Timu ya wataalam 85+</li>
-          <li><i class="fas fa-check-circle"></i> ISO 27001:2022 Certified</li>
+          <li *ngFor="let item of aboutList">
+            <i class="fas fa-check-circle"></i> {{ item }}
+          </li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES SECTION (MPYA) ============ -->
+<section class="about-services">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">
+        <i class="fas fa-cubes"></i> Huduma Zetu Kuu
+      </h2>
+      <p class="text-muted mt-3">Suluhisho tatu zinazobadilisha biashara</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let service of services">
+        <a [routerLink]="service.href" class="service-card">
+          <div class="service-icon"
+               [style.background]="service.bgColor">
+            <i [class]="service.icon"
+               [style.color]="service.iconColor"></i>
+          </div>
+          <h5>{{ service.title }}</h5>
+          <p>{{ service.description }}</p>
+          <span class="service-link">
+            Jifunze Zaidi <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -60,9 +98,9 @@
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="section-title">
-        <i class="fas fa-bullseye"></i> Our Vision & Mission
+        <i class="fas fa-bullseye"></i> Maono & Dhamira Yetu
       </h2>
-      <p class="text-muted mt-3">What drives us every day</p>
+      <p class="text-muted mt-3">Kinachotuongoza kila siku</p>
     </div>
 
     <div class="row g-4">
@@ -72,15 +110,11 @@
           <div class="vm-icon">
             <i class="fas fa-eye"></i>
           </div>
-          <h3 class="vm-title">Our Vision</h3>
-          <p class="vm-text">
-            Kuwa kampuni inayoongoza ya teknolojia Afrika, inayotengeneza 
-            suluhisho bunifu zinazobadilisha maisha ya Waafrika na kuchangia 
-            katika maendeleo ya uchumi wa kidijitali wa bara letu.
-          </p>
+          <h3 class="vm-title">{{ vision.title }}</h3>
+          <p class="vm-text">{{ vision.text }}</p>
           <div class="vm-quote">
             <i class="fas fa-quote-left"></i>
-            <em>To be Africa's leading technology company, driving digital transformation across the continent.</em>
+            <em>{{ vision.quote }}</em>
           </div>
         </div>
       </div>
@@ -91,15 +125,11 @@
           <div class="vm-icon">
             <i class="fas fa-rocket"></i>
           </div>
-          <h3 class="vm-title">Our Mission</h3>
-          <p class="vm-text">
-            Kutoa suluhisho bora za kiteknolojia kwa kutumia ubunifu, 
-            weledi, na teknolojia ya kisasa — kusaidia biashara na taasisi 
-            kufikia malengo yao kwa ufanisi zaidi.
-          </p>
+          <h3 class="vm-title">{{ mission.title }}</h3>
+          <p class="vm-text">{{ mission.text }}</p>
           <div class="vm-quote">
             <i class="fas fa-quote-left"></i>
-            <em>To empower businesses and institutions with innovative technology solutions that drive growth and efficiency.</em>
+            <em>{{ mission.quote }}</em>
           </div>
         </div>
       </div>
@@ -112,49 +142,23 @@
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="section-title">
-        <i class="fas fa-heart"></i> Our Core Values
+        <i class="fas fa-heart"></i> Maadili Yetu ya Msingi
       </h2>
-      <p class="text-muted mt-3">The principles that guide everything we do</p>
+      <p class="text-muted mt-3">
+        Nguzo zinazoongoza kila maamuzi na matendo yetu
+      </p>
     </div>
 
     <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-3" *ngFor="let value of coreValues">
         <div class="value-card">
-          <div class="value-icon" style="background: rgba(250, 204, 21, 0.15);">
-            <i class="fas fa-lightbulb" style="color: #FACC15;"></i>
+          <div class="value-icon"
+               [style.background]="value.iconBg">
+            <i [class]="value.icon"
+               [style.color]="value.iconColor"></i>
           </div>
-          <h5>Innovation</h5>
-          <p>Tunatafuta suluhisho bunifu kwa changamoto za kila siku.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="value-card">
-          <div class="value-icon" style="background: rgba(59, 130, 246, 0.15);">
-            <i class="fas fa-handshake" style="color: #3b82f6;"></i>
-          </div>
-          <h5>Integrity</h5>
-          <p>Tunafanya kazi kwa uaminifu na uwazi kwa wateja wetu.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="value-card">
-          <div class="value-icon" style="background: rgba(16, 185, 129, 0.15);">
-            <i class="fas fa-users" style="color: #10b981;"></i>
-          </div>
-          <h5>Collaboration</h5>
-          <p>Tunashirikiana na wateja na jamii kufikia malengo.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="value-card">
-          <div class="value-icon" style="background: rgba(239, 68, 68, 0.15);">
-            <i class="fas fa-star" style="color: #ef4444;"></i>
-          </div>
-          <h5>Excellence</h5>
-          <p>Tunatoa kazi bora kwa viwango vya kimataifa.</p>
+          <h5>{{ value.title }}</h5>
+          <p>{{ value.description }}</p>
         </div>
       </div>
     </div>
@@ -166,57 +170,19 @@
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="section-title">
-        <i class="fas fa-history"></i> Our Journey
+        <i class="fas fa-history"></i> Safari Yetu (2026–2032)
       </h2>
-      <p class="text-muted mt-3">Milestones that shaped who we are</p>
+      <p class="text-muted mt-3">
+        Hatua zinazotufikisha kuwa kiongozi Afrika Mashariki
+      </p>
     </div>
 
     <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">2016</div>
+      <div class="timeline-item" *ngFor="let item of timeline">
+        <div class="timeline-year">{{ item.year }}</div>
         <div class="timeline-content">
-          <h5>Kuanzishwa</h5>
-          <p>Kipepeo Tech Labs ilianzishwa na timu ndogo ya wabunifu 3.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2018</div>
-        <div class="timeline-content">
-          <h5>Upanuzi wa Kwanza</h5>
-          <p>Tulianza kuhudumia wateja wa kwanza wa kimataifa.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2020</div>
-        <div class="timeline-content">
-          <h5>Kuwekeza kwenye AI</h5>
-          <p>Tulianzisha timu ya AI na Machine Learning.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2022</div>
-        <div class="timeline-content">
-          <h5>ISO 27001 Certification</h5>
-          <p>Tulipata certification ya usalama wa taarifa.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2024</div>
-        <div class="timeline-content">
-          <h5>85+ Team Members</h5>
-          <p>Tulifikia timu ya wataalam 85+ katika nchi 12.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2026</div>
-        <div class="timeline-content">
-          <h5>Leo</h5>
-          <p>Tunaendelea kukuza teknolojia Afrika na duniani kote.</p>
+          <h5>{{ item.title }}</h5>
+          <p>{{ item.description }}</p>
         </div>
       </div>
     </div>
@@ -228,56 +194,20 @@
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="section-title">
-        <i class="fas fa-trophy"></i> Why Choose Us
+        <i class="fas fa-trophy"></i> Kwa Nini Wateja Wanatuchagua
       </h2>
-      <p class="text-muted mt-3">What makes us different</p>
+      <p class="text-muted mt-3">Kinachotufanya tuwe tofauti</p>
     </div>
 
     <div class="row g-4">
-      <div class="col-md-6">
+      <div class="col-md-6 col-lg-4" *ngFor="let item of whyChooseUs">
         <div class="why-item">
           <div class="why-icon">
-            <i class="fas fa-users-cog"></i>
+            <i [class]="item.icon"></i>
           </div>
           <div>
-            <h5>Timu ya Wataalam</h5>
-            <p>Wahandisi, wabunifu, na wataalam wa teknolojia wenye uzoefu wa miaka 10+.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="why-item">
-          <div class="why-icon">
-            <i class="fas fa-clock"></i>
-          </div>
-          <div>
-            <h5>Delivery ya Haraka</h5>
-            <p>Tunakamilisha miradi kwa wakati na kwa viwango vya kimataifa.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="why-item">
-          <div class="why-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <div>
-            <h5>Support ya 24/7</h5>
-            <p>Tunatoa msaada wa kiufundi wakati wote — siku 7 kwa wiki.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="why-item">
-          <div class="why-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <div>
-            <h5>Usalama wa Taarifa</h5>
-            <p>Tuna ISO 27001:2022 certification kwa usalama wa taarifa.</p>
+            <h5>{{ item.title }}</h5>
+            <p>{{ item.description }}</p>
           </div>
         </div>
       </div>
@@ -287,15 +217,15 @@
 
 <!-- ============ CTA ============ -->
 <section class="about-cta">
-  <div class="container text-center text-white">
-    <h2 class="cta-title">Ready to Work With Us?</h2>
-    <p class="cta-subtitle">Let's build something amazing together</p>
+  <div class="container text-center">
+    <h2 class="cta-title">{{ ctaTitle }}</h2>
+    <p class="cta-subtitle">{{ ctaSubtitle }}</p>
     <div class="cta-actions">
       <a routerLink="/contact" class="btn-ktl btn-lg">
-        <i class="fas fa-paper-plane"></i> Get in Touch
+        <i class="fas fa-paper-plane"></i> Wasiliana Nasi
       </a>
       <a routerLink="/services" class="btn-ktl-outline btn-lg">
-        <i class="fas fa-cogs"></i> View Services
+        <i class="fas fa-cogs"></i> Huduma Zetu
       </a>
     </div>
   </div>

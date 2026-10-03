@@ -1,0 +1,205 @@
+/* ============================================
+   SERVICES SECTION — SIMPLE CARDS
+   KIPEPEO TECH LABS
+   ============================================ */
+
+/* ============ SECTION WRAPPER ============ */
+.about-services {
+  padding: 80px 0;
+  background: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============ SECTION TITLE ============ */
+.about-services .section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0a0a0a;
+  border-bottom: 4px solid #FACC15;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+}
+
+.about-services .section-title i {
+  color: #FACC15;
+  font-size: 28px;
+}
+
+.about-services .text-muted {
+  color: #6b7280 !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ============ SERVICE CARD ============ */
+.service-card {
+  display: block;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  border: 2px solid #f3f4f6;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Yellow line juu ya card — inaonekana on hover */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FACC15, #f59e0b);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card Hover Effect */
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border-color: #FACC15;
+}
+
+/* ============ SERVICE ICON ============ */
+.service-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 30px;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ============ SERVICE TITLE ============ */
+.service-card h5 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0a0a0a;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+}
+
+/* ============ SERVICE DESCRIPTION ============ */
+.service-card p {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* ============ SERVICE LINK (Jifunze Zaidi) ============ */
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #FACC15;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.service-link i {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-link {
+  color: #0a0a0a;
+  gap: 14px;
+}
+
+.service-card:hover .service-link i {
+  transform: translateX(4px);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 992px) {
+  .about-services {
+    padding: 60px 0;
+  }
+
+  .about-services .section-title {
+    font-size: 26px;
+  }
+
+  .about-services .section-title i {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-services {
+    padding: 50px 0;
+  }
+
+  .about-services .section-title {
+    font-size: 22px;
+  }
+
+  .about-services .section-title i {
+    font-size: 18px;
+  }
+
+  .service-card {
+    padding: 28px 22px;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
+  .service-card h5 {
+    font-size: 17px;
+  }
+
+  .service-card p {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .service-link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .service-card {
+    padding: 24px 20px;
+  }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+}
