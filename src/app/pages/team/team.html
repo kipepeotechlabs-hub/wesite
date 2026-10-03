@@ -1,27 +1,118 @@
-<section class="py-5">
+<!-- ============================================
+     TEAM PAGE — KIPEPEO TECH LABS
+     Vertical Layout + Soma Zaidi
+     ============================================ -->
+
+<section class="team-section py-5">
   <div class="container">
+
+    <!-- Section Title -->
     <div class="text-center mb-5">
-      <h1 class="section-title">
-        <i class="fas fa-users me-2"></i>Our Team
-      </h1>
-      <p class="text-muted">Meet the brilliant minds behind Kipepeo Tech Labs</p>
+      <h2 class="section-title">
+        <i class="fas fa-users me-2"></i> Timu Yetu
+      </h2>
+      <p class="text-muted">Wataalam wanaoongoza Kipepeo Tech Labs</p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-md-4" *ngFor="let member of teamMembers">
-        <div class="product-card text-center">
-          <img [src]="member.photo" class="rounded-circle mb-3" 
-               style="width: 120px; height: 120px; object-fit: cover; margin: 0 auto; border: 4px solid #FACC15;">
-          <h5 class="fw-bold">{{ member.name }}</h5>
-          <p class="text-warning fw-bold mb-2">{{ member.role }}</p>
-          <p class="text-muted small">{{ member.bio }}</p>
-          <div class="d-flex justify-content-center gap-2 mt-3">
-            <a href="#" class="text-dark"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-dark"><i class="fab fa-github"></i></a>
+    <!-- Vertical Team List -->
+    <div class="team-list">
+
+      <div class="team-row"
+           *ngFor="let member of teamMembers; let i = index"
+           [class.team-row-reverse]="i % 2 !== 0">
+
+        <!-- PHOTO -->
+        <div class="team-photo-col">
+          <div class="team-photo-wrapper">
+            <img [src]="member.photo"
+                 [alt]="member.name"
+                 class="team-photo"
+                 onerror="this.src='assets/default-avatar.png'">
+            <div class="team-photo-border"></div>
           </div>
         </div>
+
+        <!-- INFO -->
+        <div class="team-info-col">
+          <div class="team-info">
+
+            <!-- Role Badge -->
+            <span class="team-role-badge">
+              <i class="fas fa-briefcase"></i>
+              {{ member.role }}
+            </span>
+
+            <!-- Name -->
+            <h3 class="team-name">{{ member.name }}</h3>
+
+            <!-- Short Bio -->
+            <p class="team-short-bio">{{ member.shortBio }}</p>
+
+            <!-- Full Bio (Inaonekana kwa "Soma Zaidi") -->
+            <div class="team-full-bio"
+                 [class.team-full-bio-open]="member.expanded">
+              <p>{{ member.fullBio }}</p>
+
+              <!-- Skills -->
+              <div class="team-skills">
+                <span class="team-skills-label">Ujuzi:</span>
+                <span class="team-skill-tag"
+                      *ngFor="let skill of member.skills">
+                  {{ skill }}
+                </span>
+              </div>
+
+              <!-- Contact -->
+              <div class="team-contact">
+                <a [href]="'mailto:' + member.email" class="team-contact-item">
+                  <i class="fas fa-envelope"></i>
+                  {{ member.email }}
+                </a>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="team-actions">
+
+              <!-- Soma Zaidi Button -->
+              <button class="btn-soma-zaidi"
+                      (click)="toggleBio(member)">
+                <span>{{ member.expanded ? 'Funga' : 'Soma Zaidi' }}</span>
+                <i class="fas"
+                   [class.fa-chevron-down]="!member.expanded"
+                   [class.fa-chevron-up]="member.expanded"></i>
+              </button>
+
+              <!-- Social Icons -->
+              <div class="team-socials">
+                <a [href]="member.linkedin"
+                   target="_blank"
+                   class="team-social team-social-linkedin"
+                   aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a [href]="member.twitter"
+                   target="_blank"
+                   class="team-social team-social-twitter"
+                   aria-label="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a [href]="member.github"
+                   target="_blank"
+                   class="team-social team-social-github"
+                   aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
+
     </div>
+
   </div>
 </section>

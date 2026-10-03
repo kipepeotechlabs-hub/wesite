@@ -1,0 +1,458 @@
+/* ============================================
+   TEAM PAGE — VERTICAL LAYOUT
+   KIPEPEO TECH LABS
+   ============================================ */
+
+:host {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+}
+
+.team-section {
+  background: #f9fafb;
+  padding: 80px 0;
+}
+
+/* ============================================
+   SECTION TITLE
+   ============================================ */
+.section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0a0a0a;
+  border-bottom: 4px solid #FACC15;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+}
+
+.section-title i {
+  color: #FACC15;
+  font-size: 28px;
+}
+
+.text-muted {
+  color: #6b7280 !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ============================================
+   TEAM LIST (Vertical)
+   ============================================ */
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   TEAM ROW
+   ============================================ */
+.team-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  border: 2px solid #f3f4f6;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, #FACC15, #f59e0b);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+
+.team-row:hover::before {
+  transform: scaleY(1);
+}
+
+.team-row:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-color: #FACC15;
+}
+
+/* Reverse (Picha kulia) */
+.team-row-reverse {
+  grid-template-columns: 1fr 280px;
+}
+
+.team-row-reverse .team-photo-col {
+  order: 2;
+}
+
+.team-row-reverse .team-info-col {
+  order: 1;
+}
+
+.team-row-reverse::before {
+  left: auto;
+  right: 0;
+}
+
+/* ============================================
+   PHOTO COLUMN
+   ============================================ */
+.team-photo-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-photo-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #FACC15;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+  background: #f3f4f6;
+}
+
+.team-row:hover .team-photo {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(250, 204, 21, 0.4);
+}
+
+.team-photo-border {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px dashed #FACC15;
+  opacity: 0.5;
+  animation: rotate-border 20s linear infinite;
+}
+
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   INFO COLUMN
+   ============================================ */
+.team-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Role Badge */
+.team-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(250, 204, 21, 0.15);
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: flex-start;
+}
+
+.team-role-badge i {
+  font-size: 11px;
+  color: #FACC15;
+}
+
+/* Name */
+.team-name {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0a0a0a;
+  margin: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Short Bio */
+.team-short-bio {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ============================================
+   FULL BIO (Soma Zaidi)
+   ============================================ */
+.team-full-bio {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.team-full-bio-open {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.team-full-bio p {
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 16px 0;
+}
+
+/* Skills */
+.team-skills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.team-skills-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0a0a0a;
+  margin-right: 4px;
+}
+
+.team-skill-tag {
+  display: inline-block;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.team-skill-tag:hover {
+  background: #FACC15;
+  color: #0a0a0a;
+}
+
+/* Contact */
+.team-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.team-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+.team-contact-item i {
+  color: #FACC15;
+  font-size: 14px;
+}
+
+.team-contact-item:hover {
+  color: #FACC15;
+}
+
+/* ============================================
+   ACTIONS (Soma Zaidi + Social)
+   ============================================ */
+.team-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* Soma Zaidi Button */
+.btn-soma-zaidi {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0a0a0a;
+  color: #FACC15;
+  border: none;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.btn-soma-zaidi:hover {
+  background: #FACC15;
+  color: #0a0a0a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(250, 204, 21, 0.4);
+}
+
+.btn-soma-zaidi i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.btn-soma-zaidi:hover i {
+  transform: translateY(2px);
+}
+
+/* Social Icons */
+.team-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.team-social {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.team-social:hover {
+  transform: translateY(-4px);
+  color: #ffffff;
+}
+
+.team-social-linkedin:hover {
+  background: #0077b5;
+}
+
+.team-social-twitter:hover {
+  background: #1da1f2;
+}
+
+.team-social-github:hover {
+  background: #0a0a0a;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 992px) {
+  .team-row,
+  .team-row-reverse {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 32px 24px;
+    gap: 24px;
+  }
+
+  .team-row-reverse .team-photo-col,
+  .team-row-reverse .team-info-col {
+    order: initial;
+  }
+
+  .team-row::before,
+  .team-row-reverse::before {
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #FACC15, #f59e0b);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .team-row:hover::before,
+  .team-row-reverse:hover::before {
+    transform: scaleX(1);
+  }
+
+  .team-role-badge,
+  .team-actions {
+    align-self: center;
+  }
+
+  .team-actions {
+    justify-content: center;
+  }
+
+  .team-skills {
+    justify-content: center;
+  }
+
+  .team-contact {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .team-section {
+    padding: 50px 0;
+  }
+
+  .team-photo-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .team-name {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .team-row {
+    padding: 24px 20px;
+  }
+
+  .btn-soma-zaidi {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
